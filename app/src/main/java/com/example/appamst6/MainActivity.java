@@ -19,19 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         edtUsuario = (EditText) findViewById(R.id.edtUsuario);
         edtClave = (EditText) findViewById(R.id.edtClave);
-
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
     }
 
     private void registrarse(View view) {
         Intent intent = new Intent(this, formulario_registro.class);
-        btnRegistrarse.setClickable(false);
         startActivity(intent);
-        btnRegistrarse.setClickable(true);
     }
 
     private void login(View view) {
