@@ -22,7 +22,6 @@ public class formulario_registro extends AppCompatActivity {
 
     public void insertarpaciente(View v) {
         addNotification();
-
     }
 
     private void addNotification() {
