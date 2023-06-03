@@ -42,6 +42,15 @@
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"
             android:text="Registrarse" />
+
+        <Button
+            android:id="@+id/btnDesafio"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:text="Desafio" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

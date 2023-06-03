@@ -11,13 +11,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class formulario_registro extends AppCompatActivity {
+public class FormRegistroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_registro);
-
+        MainActivity.setButtonsClickable(true);
     }
 
     public void insertarPaciente(View v) {
@@ -39,7 +39,7 @@ public class formulario_registro extends AppCompatActivity {
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-            Intent notificationIntent = new Intent(this, formulario_registro.class);
+            Intent notificationIntent = new Intent(this, FormRegistroActivity.class);
             notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             notificationIntent.putExtra("message", "This is a notification message");
 

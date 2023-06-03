@@ -1,4 +1,4 @@
-package com.example.appamst6.ui.home;
+package com.example.appamst6.ui.youtube;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,11 +21,11 @@ public class YoutubeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         YoutubeViewModel youtubeViewModel =
-                new ViewModelProvider(this).get(YoutubeViewModel.class);
+            new ViewModelProvider(this).get(YoutubeViewModel.class);
 
         binding = FragmentYoutubeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        
+
         final WebView webView = binding.webView;
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);

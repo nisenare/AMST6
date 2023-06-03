@@ -4,29 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtUsuario, edtClave;
-    private Button btnLogin, btnRegistrarse;
+    private static Button btnLogin, btnRegistrarse, btnDesafio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtUsuario = (EditText) findViewById(R.id.edtUsuario);
-        edtClave = (EditText) findViewById(R.id.edtClave);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
+        edtUsuario = findViewById(R.id.edtUsuario);
+        edtClave = findViewById(R.id.edtClave);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegistrarse = findViewById(R.id.btnRegistrarse);
+        btnDesafio = findViewById(R.id.btnDesafio);
     }
 
     private void registrarse(View view) {
-        Intent intent = new Intent(this, formulario_registro.class);
+        setButtonsClickable(false);
+        Intent intent = new Intent(this, FormRegistroActivity.class);
         startActivity(intent);
     }
 
@@ -35,12 +37,25 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    private void showDesafio(View view) {
+        setButtonsClickable(false);
+        Intent intent = new Intent(this, DesafioActivity.class);
+        startActivity(intent);
+    }
+
+    public static void setButtonsClickable(boolean value) {
+        btnLogin.setClickable(value);
+        btnRegistrarse.setClickable(value);
+        btnDesafio.setClickable(value);
+    }
+
     public void onClick(View v) {
         if(v.getId() == R.id.btnLogin){
-            Log.d("mensaje","ïngreso");
             login(v);
         } else if(v.getId() == R.id.btnRegistrarse) {
             registrarse(v);
+        } else if (v.getId() == R.id.btnDesafio) {
+            showDesafio(v);
         }
     }
 }
