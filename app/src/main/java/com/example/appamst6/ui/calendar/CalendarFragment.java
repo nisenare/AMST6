@@ -1,17 +1,21 @@
 package com.example.appamst6.ui.calendar;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.appamst6.databinding.FragmentCalendarBinding;
+
+import java.util.Objects;
 
 public class CalendarFragment extends Fragment {
 
@@ -29,7 +33,9 @@ public class CalendarFragment extends Fragment {
         cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String fecha = dayOfMonth + "/" + month +"/" + year;
+                Context context = requireContext().getApplicationContext();
+                String fecha = dayOfMonth + "/" + (month + 1) +"/" + year;
+                Toast.makeText(context,fecha,Toast.LENGTH_LONG).show();
             }
         });
 
